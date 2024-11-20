@@ -22,10 +22,10 @@ css='''
 '''
 st.markdown(css, unsafe_allow_html=True)
 
-st.title("Three gene model oscillations.")
+st.title("Three genes model dynamics.")
 st.write("Model explanation: Gene1 activates Gene2, Gene2 activates Gene3 & Gene3 represses Gene1")
 st.image("images/4.3 gene-model-network-oscillating gene network.jpg",
-         caption="G1 activates G2, G2 activates G3, G3 represses G1",
+         caption="G1 activates G2, G2 activates G3 & G3 represses G1",
          width=700)
 
 
