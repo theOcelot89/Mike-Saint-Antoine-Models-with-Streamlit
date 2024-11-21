@@ -20,7 +20,7 @@ css='''
 '''
 st.markdown(css, unsafe_allow_html=True)
 
-st.title("Gillespie algorithm on mRNA lifecycle.")
+st.title("Gillespie algorithm on mRNA lifecycle (stochastic).")
 st.write("mRNA production depends on k and degradation on γX")
 st.image("images/5. gillespie algorithm.png",
          caption="Above: differential equations for deterministic model (not used), below: events and rates",
@@ -34,9 +34,9 @@ x = [0] # mRNA population
 t = [0] # time
 
 st.sidebar.write("Parameters:")
-t_end = st.sidebar.number_input("end time of simulation", min_value = 1, value = 1000, step=1)
-k = st.sidebar.number_input("mRNA production rate", min_value=0.0,  value=round(2.0,1), format="%1f", step=0.1)
-gamma = st.sidebar.number_input("Decay rate", min_value=0.0,  value=round(0.1,1), format="%1f", step=0.1)
+t_end = st.sidebar.number_input("end time of the simulation", min_value = 1, value = 1000, step=1)
+k = st.sidebar.number_input("mRNA production rate (k)", min_value=0.0,  value=round(2.0,1), format="%1f", step=0.1)
+gamma = st.sidebar.number_input("Decay rate (γ)", min_value=0.0,  value=round(0.1,1), format="%1f", step=0.1)
 
 
 
@@ -67,7 +67,7 @@ print(sum(x)/len(x)) # average mRNA quantity, is always close to steady state  (
 st.sidebar.write(f"Mean quantiny of mRNA is **{round(sum(x)/len(x),2)}** \
                     which is close to the steady state of the deterministic version\
                     of the model (k/γ). In the deterministic model if x is \
-                    **{round(sum(x)/len(x))}** then no change will occur.")
+                    **{k/gamma}** then no change will occur.")
 
 f = plt.figure()
 plt.plot(t,x)
